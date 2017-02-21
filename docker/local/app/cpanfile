@@ -1,4 +1,5 @@
 requires "Ark";
+requires "Plack";
 
 for my $cpanfile (glob("*/cpanfile")) {
     do $cpanfile;
