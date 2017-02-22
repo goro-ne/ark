@@ -1,0 +1,3 @@
+docker/local/app/bin/*
+docker/local/app/cache/*
+docker/local/app/lib/*

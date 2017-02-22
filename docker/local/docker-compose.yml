@@ -1,0 +1,18 @@
+version: '2'
+services:
+  mysql:
+    restart: always
+    build: ./mysql
+    container_name: mysql
+    environment:
+      - "TZ=Asia/Tokyo"
+      - "MYSQL_ROOT_PASSWORD=root"
+    volumes:
+      - "/etc/localtime:/etc/localtime:ro"
+      - "./mysql/data:/var/lib/mysql"
+      - "./mysql/log:/var/log/mysql"
+      - "./mysql/conf/my.cnf:/etc/mysql/my.cnf"
+      - "./mysql/docker-entrypoint-initdb.d/:/docker-entrypoint-initdb.d/"
+    ports:
+      - "3306:3306"
+    network_mode: bridge

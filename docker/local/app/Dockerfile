@@ -15,3 +15,6 @@ WORKDIR /myapp
 USER myuser
 
 ENTRYPOINT [ "carton", "exec" ]
+
+#CMD [ "carton", "-t", "perl-dev" ]
+#CMD [ "carton", "exec" ]
