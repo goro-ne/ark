@@ -1,5 +1,7 @@
 requires "Ark";
 requires "Plack";
+requires "DBIx::Class";
+requires "SQL::Translator";
 
 for my $cpanfile (glob("*/cpanfile")) {
     do $cpanfile;
