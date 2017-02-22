@@ -1,4 +1,4 @@
-# Ark-advent-2016 - Day01
+# Ark-advent-2016
 
 ## 目的
 Ark実行環境、Arkフレームワークを理解する。
@@ -8,41 +8,41 @@ Ark実行環境、Arkフレームワークを理解する。
 こちらを実施します。
 http://konboi.github.io/ark-advent-2016/01
 
-## 環境構築
+## 手順書
 
-- Docker for Macをインストール
+- 1. Docker for Macをインストール
 https://docs.docker.com/docker-for-mac/install/
-- プロジェクトソースをクローン
+- 2. プロジェクトソースをクローン
 ```
 $ eval `ssh-agent`
 $ ssh-add [SSH秘密鍵]
 $ git clone git@github.com:goroutine/ark.git
 ```
-- MySQLコンテナを初期化
+- 3. MySQLコンテナを初期化
 ```
 $ cd docker/local
 $ docker-compose down
 $ rm -rf mysql/data/*
 ```
-- MySQLコンテナを起動
+- 4. MySQLコンテナを起動
 ```
 $ docker-compose up -d
 ``` 
-- Appコンテナをビルド
+- 5. Appコンテナをビルド
 ```
 $ cd docker/local/app
 $ make build
 ```
-- Appコンテナを起動
+- 6. Appコンテナを起動
 ```
 $ make bash
 ```
-- テーブル作成
+- 7. deploy.pmでSchemaからテーブルを作成
 ```
 $ cd Jobeet
 $ carton exec perl deploy.pl
 ```
-- サーバー起動
+- 8. plackupでサーバー起動
 ```
 $ cd Jobeet
 $ plackup -r dev.psgi
@@ -60,6 +60,6 @@ Watching ./lib dev.psgi for file updates.
 [debug] Setup finished
 HTTP::Server::PSGI: Accepting connections at http://0:5000/
 ```
-- ブラウザからアクセス
+- 9. ブラウザからアクセス
 ホストPCのブラウザから http://0.0.0.0:5000/ にアクセス
 
