@@ -1,0 +1,23 @@
+filetype off
+filetype plugin indent off
+set rtp+=$GOROOT/misc/vim
+filetype plugin indent on
+syntax on
+autocmd FileType go autocmd BufWritePre  Fmt
+set rtp+=$GOPATH/src/github.com/nsf/gocode/vim
+set rtp+=$GOPATH/src/github.com/github.com/golang/lint/golint
+set completeopt=menu,preview
+set number
+
+call plug#begin('~/.vim/plugged')
+Plug 'vim-scripts/sudo.vim'
+Plug 'sjl/badwolf'
+Plug 'fatih/molokai'
+Plug 'scrooloose/syntastic'
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'jistr/vim-nerdtree-tabs'
+Plug 'fatih/vim-go'
+Plug 'vim-jp/vim-go-extra'
+Plug 'stephpy/vim-yaml'
+Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
+call plug#end()

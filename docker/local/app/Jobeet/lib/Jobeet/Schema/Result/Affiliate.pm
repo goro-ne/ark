@@ -22,12 +22,13 @@ __PACKAGE__->set_primary_key('id');
 __PACKAGE__->add_unique_constraint(['email']);
 
 __PACKAGE__->has_many(
-    category_affiliate => 'Jobeet::Schema::Result::CategoryAffiliate', 'affiliate_id' );
-
-__PACKAGE__->belongs_to(
-    category => 'Jobeet::Schema::Result::Category', 'id' );
-__PACKAGE__->belongs_to(
-    affiliate => 'Jobeet::Schema::Result::Affiliate', 'id' );
+    category_affiliate => 'Jobeet::Schema::Result::CategoryAffiliate',
+    'affiliate_id',
+    {
+        is_foreign_key_constraint => 0,
+        cascade_delete => 0,
+    },
+);
 
 __PACKAGE__->many_to_many( categories => category_affiliate => 'category' );
 

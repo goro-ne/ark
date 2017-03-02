@@ -14,6 +14,11 @@ RUN echo "myuser ALL=NOPASSWD: ALL" >> /etc/sudoers \
 WORKDIR /myapp
 USER myuser
 
+
+RUN curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+COPY vimrc /home/myuser/.vimrc
+
 ENTRYPOINT [ "carton", "exec" ]
 
 #CMD [ "carton", "-t", "perl-dev" ]
